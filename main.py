@@ -13,22 +13,25 @@ EVENT_URL = "https://event.nileex.io"
 # registered in Oracle
 ADDR = "THbSb6bAYKjVzkVNWkyTgTHoNtmzwxQcaG"
 PRIV_KEY = PrivateKey.fromhex("c0391dbbc8100288edc22dac08cf3e6566b97f504be200154dc2e4bb2b8ca955")
+# works 😍
 
 # not-registered in Oracle
-ADDR = "TXzTinuRvb87ZUtFVBbohfu1Hp3rU96uPm"
-PRIV_KEY = PrivateKey.fromhex("d832d4f22ae10fe5b4b749f843f3fd164d830d17066fdf17ee55a0f40bc73ccb")
+# ADDR = "TXzTinuRvb87ZUtFVBbohfu1Hp3rU96uPm"
+# PRIV_KEY = PrivateKey.fromhex("d832d4f22ae10fe5b4b749f843f3fd164d830d17066fdf17ee55a0f40bc73ccb")
+# REVERT opcode executed: Not an authorized node to fulfill requests
 
 # nile
 # /event/contract/{}
 
 # mainnet
-# /v1/contracts/%s/events
+# /v1/contracts/{}/events
 
 """
 url = urljoin(EVENT_URL, "/event/contract/TYZxQSHAhxGgUWzxYEZAohvWc9cQWXtNBt")
 resp = requests.get(url)
-pprint(resp.json())
 
+events = resp.json()
+pprint(events)
 
 raise SystemExit
 """
@@ -57,6 +60,17 @@ event = {
     'specId': '3239666139616131336266313436383738386237636334613530306134356238',
 }
 
+event = {
+    'callbackAddr': '0x5a0d3ab8219a1bd91be27f8cbd8e12cf3fe1fcf6',
+    'callbackFunctionId': '4357855e00000000000000000000000000000000000000000000000000000000',
+    'cancelExpiration': '1602790200',
+    'data': '',
+    'dataVersion': '1',
+    'payment': '1000000000000000',
+    'requestId': '7907cb05f248e2cda73266426bdd3009557b112d385ea8baa1da79f1191f5df8',
+    'requester': '0x5a0d3ab8219a1bd91be27f8cbd8e12cf3fe1fcf6',
+    'specId': '3239666139616131336266313436383738386237636334613530306134356238',
+}
 
 client = tronpy.Tron(network="nile")
 
