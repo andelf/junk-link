@@ -294,7 +294,7 @@ contract Oracle is ChainlinkRequestInterface, OracleInterface, Ownable {
      */
     modifier onlyAuthorizedNode() {
         require(
-            authorizedNodes[msg.sender] || msg.sender == owner,
+            authorizedNodes[msg.sender] || msg.sender == owner(),
             "Not an authorized node to fulfill requests"
         );
         _;
