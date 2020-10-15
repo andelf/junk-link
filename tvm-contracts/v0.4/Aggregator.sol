@@ -1,8 +1,8 @@
 pragma solidity ^0.4.25;
 
 import "./vendor/Ownable.sol";
-import "./interfaces/AggregatorInterface.sol";
 import "./vendor/SignedSafeMath.sol";
+import "./interfaces/AggregatorInterface.sol";
 import "./ChainlinkClient.sol";
 
 contract Aggregator is AggregatorInterface, ChainlinkClient, Ownable {

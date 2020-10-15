@@ -1,8 +1,8 @@
 pragma solidity ^0.5.0;
 
 import "./vendor/Ownable.sol";
-import "./interfaces/AggregatorInterface.sol";
 import "./vendor/SignedSafeMath.sol";
+import "./interfaces/AggregatorInterface.sol";
 import "./ChainlinkClient.sol";
 
 /**
