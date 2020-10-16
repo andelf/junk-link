@@ -3,8 +3,6 @@ pragma solidity ^0.5.0;
 import "./ChainlinkClient.sol";
 import "./vendor/Ownable.sol";
 
-// import "./vendor/SignedSafeMath.sol";
-
 /**
  * @title An example Chainlink contract, SimpleConsumer
  * @notice Requesters can use this contract as a framework for creating

@@ -26,16 +26,21 @@ PRIV_KEY = PrivateKey.fromhex("c0391dbbc8100288edc22dac08cf3e6566b97f504be200154
 # mainnet
 # /v1/contracts/{}/events
 
-"""
+
 url = urljoin(EVENT_URL, "/event/contract/TYZxQSHAhxGgUWzxYEZAohvWc9cQWXtNBt")
 resp = requests.get(url)
 
 events = resp.json()
+
+event = events[0]['result']
+
 pprint(events)
+print('=' * 80)
+pprint(event)
 
-raise SystemExit
+#raise SystemExit
+
 """
-
 event = {
     'callbackAddr': '0x5a0d3ab8219a1bd91be27f8cbd8e12cf3fe1fcf6',
     'callbackFunctionId': '4357855e00000000000000000000000000000000000000000000000000000000',
@@ -71,13 +76,15 @@ event = {
     'requester': '0x5a0d3ab8219a1bd91be27f8cbd8e12cf3fe1fcf6',
     'specId': '3239666139616131336266313436383738386237636334613530306134356238',
 }
+"""
 
 client = tronpy.Tron(network="nile")
 
 print('request from')
 print(client.to_base58check_address(event['callbackAddr']))
 
-reply_value = random.randint(0, 10000000000)
+#reply_value = random.randint(0, 10000000000)
+reply_value = 50
 
 print('REPLY:', reply_value)
 
@@ -100,7 +107,7 @@ txn = (
         reply_value.to_bytes(32, 'big'),
     )
     .with_owner(ADDR)
-    .fee_limit(5_000_000)
+    .fee_limit(1000_000_000)
     .build()
     .sign(PRIV_KEY)
 )
